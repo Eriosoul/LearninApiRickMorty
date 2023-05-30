@@ -1,12 +1,15 @@
+import os
 import requests
 from requests import Response
 from data_class.api_result import APIResults, APIInfoData
+from dotenv import load_dotenv
 
 
 class RickMortyAPI:
     def __init__(self):
-        self.url_info: str = 'https://rickandmortyapi.com/api/'
-        self.url_char: str = 'https://rickandmortyapi.com/api/character'
+        load_dotenv()
+        self.url_info: str = os.getenv('URL_INFO')
+        self.url_char: str = os.getenv('URL_CHAR')
 
     def get_info(self) -> APIInfoData:
         try:

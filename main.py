@@ -1,12 +1,16 @@
+import os
 import requests
 from requests import Response
 from api import api_petition
+from dotenv import load_dotenv
 
 
 class RickMorty:
     def __init__(self):
         self.r = None
-        self.url = 'https://rickandmortyapi.com/api/'
+        load_dotenv()
+        # I will not show the link
+        self.url = os.getenv('URL_INFO')
 
     def get_check_conection(self):
         try:
